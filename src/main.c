@@ -10,6 +10,7 @@
 #include <avr/interrupt.h>
 #include <util/atomic.h>
 #include <stdio.h>
+#include "can.h"
 
 
 int main(void) {
