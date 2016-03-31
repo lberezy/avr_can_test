@@ -74,6 +74,8 @@ CFLAGS += -fms-extensions
 ##CFLAGS += -finline-functions -ffreestanding -mcall-prologues  -fno-tree-scev-cprop -fno-split-wide-types ## --combine -fwhole-program
 ## Splits up object files per function
 CFLAGS += -ffunction-sections -fdata-sections
+LDLIBS += $(patsubst %,-L%,$(LIBDIR))
+LDLIBS +=  -L. -lcan # Add
 ##LDFLAGS = -Wl,-Map,$(TARGET).map
 ## Optional, but often ends up with smaller code
 ## LDFLAGS += -Wl,--gc-sections
@@ -157,7 +159,7 @@ clean:
 	find . -name "*.d" -type f -delete
 	find . -name "*.map" -type f -delete
 	find . -name "*.syms" -type f -delete
-	find . -name "*.a" -type f -delete
+	##find . -name "*.a" -type f -delete
 	find . -name "*.bin" -type f -delete
 
 
